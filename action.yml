@@ -35,10 +35,12 @@ runs:
       - name: Cache npm dependencies
         uses: actions/cache@v2
         with:
-          path: '~/.npm'
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: |
+           '~/.npm'
+           **/node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-npm-
       - name: Oryx build step
         uses: snehapar9/jamstack-docker-action@snehapar/oryx-build
         id: oryx-build
