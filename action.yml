@@ -22,8 +22,6 @@ runs:
          registry: jamstacktest.azurecr.io
          username: ${{ inputs.username }}
          password: ${{ inputs.password }} 
-      - name: Test Echo username and password
-        run: echo ${{ inputs.password }}
        # This is a separate action that sets up buildx runner
       # - name: Cache NPM dependencies
       #   uses: actions/cache@v3
