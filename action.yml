@@ -4,9 +4,9 @@ inputs:
     default: '/'
     required: true
   username: 
-    default: ${{ secrets.AZURE_CLIENT_ID }}
+    required: true
   password: 
-    default: ${{ secrets.AZURE_CLIENT_SECRET }}    
+    required: true   
 runs:
   using: "composite"
   steps:
@@ -37,3 +37,5 @@ runs:
         id: oryx-build
         with:
           app-location: ${{ inputs.app-location }}
+          username: ${{ inputs.username }}
+          password: ${{ inputs.password }}
