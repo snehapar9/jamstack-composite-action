@@ -33,5 +33,3 @@ runs:
         id: oryx-build
         with:
           app-location: ${{ inputs.app-location }}
-      - name: Docker image ls
-        run: docker image ls --digests --no-trunc
