@@ -3,10 +3,6 @@ inputs:
   app-location: 
     default: '/'
     required: true
-  username: 
-    required: true
-  password: 
-    required: true   
 runs:
   using: "composite"
   steps:
@@ -46,5 +42,3 @@ runs:
         id: oryx-build
         with:
           app-location: ${{ inputs.app-location }}
-          username: ${{ inputs.username }}
-          password: ${{ inputs.password }}
