@@ -37,10 +37,12 @@ runs:
 #           key: ${{ runner.os }}-npm3-${{ hashFiles('**/package-lock.json') }}
 #           restore-keys: |
 #             ${{ runner.os }}-npm3-
-      - uses: actions/setup-node@v3
+      - name: Cache Node Modules
+        id: node-cache
+        uses: actions/cache@v2
         with:
-         #  node-version: 16 
-           cache: 'npm'     
+          path: node_modules
+          key: node-modules-${{ hashFiles('package-lock.json') }}
       - name: Oryx build step
         uses: snehapar9/jamstack-docker-action@snehapar/oryx-build
         id: oryx-build
