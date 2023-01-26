@@ -28,15 +28,19 @@ runs:
       #    key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
       #    restore-keys: |
       #     ${{ runner.OS }}-npm-cache-    
-      - name: Cache npm dependencies
-        uses: actions/cache@v2
+#       - name: Cache npm dependencies
+#         uses: actions/cache@v2
+#         with:
+#           path: |
+#            '~/.npm'
+#           # **/node_modules
+#           key: ${{ runner.os }}-npm3-${{ hashFiles('**/package-lock.json') }}
+#           restore-keys: |
+#             ${{ runner.os }}-npm3-
+      - uses: actions/setup-node@v3
         with:
-          path: |
-           '~/.npm'
-          # **/node_modules
-          key: ${{ runner.os }}-npm3-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm3-
+         #  node-version: 16 
+           cache: 'npm' | 'yarn'      
       - name: Oryx build step
         uses: snehapar9/jamstack-docker-action@snehapar/oryx-build
         id: oryx-build
