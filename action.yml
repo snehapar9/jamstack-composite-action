@@ -40,7 +40,7 @@ runs:
       - uses: actions/setup-node@v3
         with:
          #  node-version: 16 
-           cache: 'npm' | 'yarn'      
+           cache: 'npm'     
       - name: Oryx build step
         uses: snehapar9/jamstack-docker-action@snehapar/oryx-build
         id: oryx-build
