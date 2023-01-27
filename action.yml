@@ -29,10 +29,10 @@ runs:
       #    restore-keys: |
       #     ${{ runner.OS }}-npm-cache-    
       - name: Cache npm dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v2
         with:
           path: |
-            ~/.npm
+            '~/.npm'
          #  **/node_modules
           key: ${{ runner.os }}-npm3-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
